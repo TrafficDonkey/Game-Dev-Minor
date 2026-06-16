@@ -242,6 +242,12 @@ details.phase[open] > summary .twist { transform: rotate(90deg); }
 .diffdot.d-Beginner { background: var(--d-Beginner); }
 .diffdot.d-Intermediate { background: var(--d-Intermediate); }
 .diffdot.d-Advanced { background: var(--d-Advanced); }
+/* mode glyph in the sidebar: graduation cap = knowledge, wrench = hands-on.
+   The shape carries the meaning (colourblind-safe); a subtle tint aids scanning. */
+.modeicon { display: inline-flex; flex: 0 0 auto; }
+.modeicon svg { width: 13px; height: 13px; }
+.modeicon.m-knowledge { color: color-mix(in srgb, var(--p-C) 72%, var(--ink-3)); }
+.modeicon.m-handson { color: color-mix(in srgb, var(--p-D) 78%, var(--ink-3)); }
 .side-note { padding: 8px 12px; font-size: .82rem; }
 
 /* ----------------------------- Search -------------------------------------- */

@@ -164,9 +164,13 @@
         html += '<div class="ph-bar"><span class="pbar"><i style="width:' + pr.pct + '%;background:var(--p-' + pl.id + ')"></i></span><span class="dim" style="font-size:.7rem">' + pr.done + '/' + pr.total + '</span></div>';
         ls.forEach(function (L) {
           var ld = store.isDone(L.id), act = cur === '/lesson/' + L.id;
+          var isHandson = L.mode === 'handson';
+          var modeIc = '<span class="modeicon m-' + (isHandson ? 'handson' : 'knowledge') + '" title="'
+            + (isHandson ? 'Hands-on' : 'Knowledge') + '" aria-label="' + (isHandson ? 'Hands-on lesson' : 'Knowledge lesson') + '">'
+            + ui.icon(isHandson ? 'wrench' : 'gradcap') + '</span>';
           html += '<a class="lesson-link' + (ld ? ' done' : '') + (act ? ' active' : '') + '" href="#/lesson/' + L.id + '">'
             + '<span class="tick">' + (ld ? '✓' : '') + '</span><span class="ll-title">' + ui.esc(L.title) + '</span>'
-            + '<span class="diffdot d-' + L.difficulty + '" title="' + L.difficulty + '"></span></a>';
+            + modeIc + '<span class="diffdot d-' + L.difficulty + '" title="' + L.difficulty + ' difficulty"></span></a>';
         });
         html += '</details>';
       });
