@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#14161a" />
+  <title>Game Dev Academy — a headstart for the Game Development minor</title>
+  <meta name="description" content="A complete, offline headstart for a university Game Development minor: storytelling, game design, level design, game-ready 3D and programming (engine-neutral + Unity/C#), built around the GDD, sprints and the achievement portfolio. 160+ lessons and interactive concept tools, fully on-device." />
+
+  <!-- Installable offline PWA (all relative paths so it works under a hosted subpath) -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Game Dev" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app"></div>
+  <noscript>
+    <div style="padding:40px;max-width:640px;margin:0 auto;color:#e9ecf1;background:#14161a;font-family:system-ui">
+      <h1>Game Dev Academy</h1>
+      <p>This app needs JavaScript enabled. It runs entirely on your device — no server, no network.</p>
+    </div>
+  </noscript>
+
+  <!-- Core (no dependencies, no build step, file:// safe) -->
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/curric.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/milestones.js"></script>
+
+  <!-- Interactive tools (registry first) -->
+  <script src="js/tools/registry.js"></script>
+  <script src="js/tools/pipeline.js"></script>
+  <script src="js/tools/gdd.js"></script>
+  <script src="js/tools/scope.js"></script>
+  <script src="js/tools/coreloop.js"></script>
+  <script src="js/tools/blockout.js"></script>
+  <script src="js/tools/achieve.js"></script>
+  <script src="js/tools/kanban.js"></script>
+  <script src="js/tools/assetcheck.js"></script>
+  <script src="js/tools/playground.js"></script>
+  <script src="js/tools/narrative.js"></script>
+
+  <!-- Curriculum spine -->
+  <script src="data/pillars.js"></script>
+
+  <!-- Lessons by pillar / phase / module (order irrelevant; sorted by seq) -->
+  <script src="data/lessons/00a.js"></script>
+  <script src="data/lessons/00b.js"></script>
+  <script src="data/lessons/01a.js"></script>
+  <script src="data/lessons/01b.js"></script>
+  <script src="data/lessons/01c.js"></script>
+  <script src="data/lessons/02a.js"></script>
+  <script src="data/lessons/02b.js"></script>
+  <script src="data/lessons/03a.js"></script>
+  <script src="data/lessons/03b.js"></script>
+  <script src="data/lessons/04a.js"></script>
+  <script src="data/lessons/04b.js"></script>
+  <script src="data/lessons/a0a.js"></script>
+  <script src="data/lessons/a1a.js"></script>
+  <script src="data/lessons/a1b.js"></script>
+  <script src="data/lessons/a2a.js"></script>
+  <script src="data/lessons/a3a.js"></script>
+  <script src="data/lessons/a4a.js"></script>
+  <script src="data/lessons/a5a.js"></script>
+  <script src="data/lessons/b0a.js"></script>
+  <script src="data/lessons/b0b.js"></script>
+  <script src="data/lessons/b1a.js"></script>
+  <script src="data/lessons/b2a.js"></script>
+  <script src="data/lessons/b2b.js"></script>
+  <script src="data/lessons/b3a.js"></script>
+  <script src="data/lessons/b4a.js"></script>
+  <script src="data/lessons/b4b.js"></script>
+  <script src="data/lessons/b5a.js"></script>
+  <script src="data/lessons/c0a.js"></script>
+  <script src="data/lessons/c1a.js"></script>
+  <script src="data/lessons/c1b.js"></script>
+  <script src="data/lessons/c2a.js"></script>
+  <script src="data/lessons/c2b.js"></script>
+  <script src="data/lessons/c3a.js"></script>
+  <script src="data/lessons/c3b.js"></script>
+  <script src="data/lessons/c4a.js"></script>
+  <script src="data/lessons/d0a.js"></script>
+  <script src="data/lessons/d1a.js"></script>
+  <script src="data/lessons/d1b.js"></script>
+  <script src="data/lessons/d2a.js"></script>
+  <script src="data/lessons/d3a.js"></script>
+  <script src="data/lessons/d3b.js"></script>
+  <script src="data/lessons/d4a.js"></script>
+  <script src="data/lessons/d5a.js"></script>
+  <script src="data/lessons/d5b.js"></script>
+  <script src="data/lessons/e0a.js"></script>
+  <script src="data/lessons/e0b.js"></script>
+  <script src="data/lessons/e1a.js"></script>
+  <script src="data/lessons/e1b.js"></script>
+  <script src="data/lessons/e1c.js"></script>
+  <script src="data/lessons/e2a.js"></script>
+  <script src="data/lessons/e2b.js"></script>
+  <script src="data/lessons/e3a.js"></script>
+  <script src="data/lessons/e4a.js"></script>
+  <script src="data/lessons/e4b.js"></script>
+  <script src="data/lessons/e5a.js"></script>
+  <script src="data/lessons/f0a.js"></script>
+  <script src="data/lessons/f1a.js"></script>
+  <script src="data/lessons/f2a.js"></script>
+  <script src="data/lessons/f3a.js"></script>
+
+  <!-- Reference data -->
+  <script src="data/glossary.js"></script>
+  <script src="data/projects.js"></script>
+  <script src="data/milestones.js"></script>
+  <script src="data/hotkeys.js"></script>
+
+  <!-- Views -->
+  <script src="js/views/lesson.js"></script>
+  <script src="js/views/dashboard.js"></script>
+  <script src="js/views/curriculum.js"></script>
+  <script src="js/views/reference.js"></script>
+  <script src="js/views/tools.js"></script>
+
+  <!-- Boot (registers routes -> must load last) -->
+  <script src="js/app.js"></script>
+
+  <!-- Register the service worker for offline use. No-op over file:// or insecure
+       origins (service workers need https or localhost); the site still works fully. -->
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function (e) { /* offline cache unavailable; app still runs */ });
+      });
+    }
+  </script>
+</body>
+</html>
