@@ -59,9 +59,16 @@ are filled in at the bottom once the full content build + validation completed.)
 - The site cannot run an engine or Blender; lessons teach concepts, click-paths/commands and JS demos.
 - **Engine default = Unity/C#**, labelled swappable everywhere it appears (the minor's real engine is
   unknown).
-- **Achievement grade model**: the planner uses the brief's anchors ("8 gold = a 6, 8 platinum = a 10")
-  but states plainly that the exact formula must be confirmed with the minor, and that it models only the
-  individual achievement portfolio (~half the grade); the other half is the group game.
+- **Achievement grade model (corrected against the real rubric).** The minor's actual rules: grade =
+  50% individual achievement portfolio + 50% the group game (graded by the lecturers in their areas);
+  **silver = attending all of a track's lectures** (attendance), **gold = two individual assignments per
+  track**, **platinum = two higher-skill assignments per track**; **≥8 gold → a 6**, **+8 platinum → a 10**.
+  Lessons `01-01/01-02/01-03` and `f2-01` and the `achieve` tool were rewritten to match exactly: the
+  planner is now **count-based** (5 tracks × 2 gold + 2 platinum = 10 of each available, need 8 of each),
+  showing "—" below 8 gold, 6.0 at 8 gold, and +0.5 per platinum up to 10.0. The two anchors are the
+  course's stated rule; the in-between +0.5/platinum scaling is labelled as the tool's interpretation to
+  confirm with the programme. (Earlier versions described silver as generic "baseline work" and averaged a
+  per-slot score — both wrong; fixed.)
 - Engine/Blender shortcuts are flagged as remappable / version-dependent defaults.
 
 ## Build process
