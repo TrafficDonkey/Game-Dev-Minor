@@ -1,5 +1,5 @@
 /* =============================================================================
- * Game Dev Academy — Tool: Sprint / Kanban Board.
+ * Game Dev Academy — Tool: Sprint Board (Trello-style; Trello is a Kanban board).
  * The rhythm the team will actually run: cards flow Backlog → To Do → In Progress
  * → Review → Done. Every card carries a TRACK tag (Story / Design / Level / 3D /
  * Code / Team) that sets both a coloured left border AND a readable text tag — so
@@ -78,9 +78,9 @@
       container.insertAdjacentHTML('beforeend',
         '<div class="callout" role="note" style="margin:0 0 14px;border-color:var(--accent)">'
         + '<span class="ct">The sprint rhythm</span>'
-        + 'A board makes the work visible. Cards flow left to right; the team pulls the next card only when there is room. '
-        + 'The golden rule is <b>limit work-in-progress</b> — too many cards "In Progress" means everything is half-done and '
-        + 'nothing ships. Tag every card with its track so anyone can see the balance of the sprint at a glance.</div>');
+        + 'This mirrors your team’s <b>Trello</b> board — Trello’s <b>Lists</b> are these columns and its <b>Cards</b> are these tickets; the method is <b>Kanban</b>. '
+        + 'Cards flow left to right; the team pulls the next card only when there is room. The golden rule is <b>limit work-in-progress</b> — too many cards "In Progress" '
+        + 'means everything is half-done and nothing ships. (Trello won’t enforce that cap for you — keep it by agreement.) Tag every card with its track so anyone can read the sprint at a glance.</div>');
     }
 
     // add-card form (real form controls, keyboard-usable)
@@ -278,10 +278,11 @@
   GDA.tools.register({
     id: 'kanban',
     icon: 'check',
-    title: 'Sprint Board (Kanban)',
-    blurb: 'A working Kanban board for your sprints: add cards tagged by track (Story / Design / Level / 3D / Code / Team), '
-      + 'drag them — or use the ‹ / › buttons — across Backlog → To Do → In Progress → Review → Done, and watch the '
-      + 'work-in-progress limit warn you when too much is half-finished. The visible, limit-WIP rhythm a small team lives by.',
+    title: 'Sprint Board (Trello-style)',
+    blurb: 'A Trello-style board for your sprints — Trello is a Kanban board, so its Lists are these columns and its Cards are these tickets. '
+      + 'Add cards tagged by track (Story / Design / Level / 3D / Code / Team), drag them — or use the ‹ / › buttons — across '
+      + 'Backlog → To Do → In Progress → Review → Done, and watch the work-in-progress limit warn you when too much is half-finished. '
+      + 'The visible, limit-WIP rhythm a small team lives by.',
     category: 'Foundations',
     mount: mount
   });

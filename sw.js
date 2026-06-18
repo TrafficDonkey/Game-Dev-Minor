@@ -7,7 +7,7 @@
  * Registered from index.html with a RELATIVE scope so it works under a subpath
  * (e.g. username.github.io/repo/). Requires a secure context (https or localhost).
  * ========================================================================== */
-var CACHE_VERSION = 'gda-cache-v4';
+var CACHE_VERSION = 'gda-cache-v5';
 var PRECACHE = [
   "./",
   "./index.html",
