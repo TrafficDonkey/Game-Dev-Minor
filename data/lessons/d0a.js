@@ -14,7 +14,7 @@
 '- **Detail moves from geometry into textures.** Bumps, seams and panel lines that a render would model are instead *baked* into a **normal map** on a low-poly mesh. (See [[d3-04]].)\n' +
 '- **Materials must be real-time PBR** — a fixed set of texture maps the GPU reads, not a procedural node tree evaluated offline. (See [[d3-01]].)\n' +
 '- **Topology and UVs matter**, because the mesh deforms, gets LODs, and shares texture space. A render doesn’t care about clean quads; a game does.\n' +
-'- **It must export and import cleanly** — correct scale, sane pivot, consistent naming, FBX/glTF. (See [[d5-03]].)\n\n' +
+'- **It must export and import cleanly** — correct scale, sane pivot, consistent naming, and a clean format (Godot treats **glTF/`.glb`** as first-class; `.fbx` works too, and you can import `.blend` directly with Blender installed). (See [[d5-03]].)\n\n' +
 'The mindset shift is from *"how good can this look?"* to *"how good can this look **for its cost**?"* — efficiency as a creative constraint. That constraint is also a seam: the **level designer** builds from your assets, and the **graphics programmer** writes the shaders that draw them, so your budgets and conventions affect their work directly. Get this mindset and the rest of the pillar is detail.',
     task:
 'Open the **Game-ready 3D checklist** above and skim the categories — poly budget, UVs, LODs, materials, naming, export. Then take one Blender model you already have (or a free asset you can open) and write down three things that make it a *render* rather than a *game asset*: e.g. a subdivision modifier left on, no UVs (or auto-UVs), a 4-million-tri sculpt with no low-poly, a procedural material that can’t export. For each, name what you’d do instead for real-time.',
@@ -25,7 +25,7 @@
     ],
     skills: ['Real-time mindset', 'Render vs game asset', 'Efficiency as a constraint'],
     simplified: 'Frame and poly budgets vary hugely by platform and engine — a PC game and a mobile game live in different worlds. The ~16 ms / 60 fps figure is the common PC target; treat all specific numbers as ballpark, and always profile the real target.',
-    goDeeper: 'The free learning materials around real-time art (e.g. the official Unity and Unreal docs on importing meshes, and community game-art breakdowns) are the best next step; search "game ready asset workflow" from established environment artists.',
+    goDeeper: 'The free learning materials around real-time art (e.g. the official Godot docs on importing 3D scenes and meshes, and community game-art breakdowns) are the best next step; search "game ready asset workflow" from established environment artists.',
     quiz: [
       { q: 'Your sculpt looks amazing in Blender but tanks the engine’s frame rate. What’s the game-art fix, in one sentence?', a: 'Retopologise to a low-poly mesh and bake the sculpt’s detail into a normal map (plus the other PBR maps), so the engine draws a cheap mesh that *looks* high-poly — detail moves from geometry into textures.' },
       { q: 'Why is "how good for its cost?" the real-time artist’s question?', a: 'Because the engine must draw the whole scene within a tiny frame budget, every asset competes for that budget. An asset that looks 5% better but costs 3× the performance is usually the wrong call — efficiency is part of the craft, not separate from it.' }
@@ -51,7 +51,7 @@
     ],
     skills: ['Poly budgeting', 'Draw calls & batching', 'Thinking in scenes'],
     simplified: 'Real budgets depend on the engine, platform and your target hardware; the "performance triangle" is a teaching model, not an exact accounting. Always profile the actual target rather than trusting a single triangle number.',
-    goDeeper: 'Engine profiler docs (Unity Profiler, Unreal’s stat/Insights) are the real teachers here — they show whether you’re bound by the CPU (draw calls) or the GPU (shading/overdraw). Learning to read a frame is the skill.',
+    goDeeper: 'Engine profiler docs (Godot’s built-in profiler and the Debugger panel’s Monitors/Frame views) are the real teachers here — they show whether you’re bound by the CPU (draw calls) or the GPU (shading/overdraw). Learning to read a frame is the skill.',
     quiz: [
       { q: 'A scene runs slowly but the triangle count is low. Name two likely culprits.', a: 'Too many draw calls (lots of small, unique objects each issuing their own command — fix with batching / shared materials / atlasing) or heavy overdraw and expensive shading (transparency, dense foliage, costly materials). Low triangles doesn’t mean cheap.' },
       { q: 'Why can the same 10k-triangle model be "fine" in one place and "a disaster" in another?', a: 'Because cost is contextual: 10k for a single hero object the player studies up close is reasonable, but 10k for a rock placed 500 times multiplies into millions of triangles and many draw calls. Budget by role and on-screen count, not by the asset alone.' }
@@ -69,7 +69,7 @@
 '- **UV unwrap** — lay the low-poly’s surface out flat with sensible seams and texel density. (See [[d2-01]].)\n' +
 '- **Bake** — transfer the high-poly’s detail (normals, AO, curvature) onto the low-poly’s UVs. (See [[d3-04]].)\n' +
 '- **Texture** — author the PBR maps (albedo, roughness, metallic, normal, AO). (See [[d3-02]].)\n' +
-'- **Export & import** — out as FBX/glTF at correct scale and naming; into the engine with the right import settings; assign a real-time material. (See [[d5-03]].)\n' +
+'- **Export & import** — out as glTF/`.glb` (Godot’s first-class, recommended format; `.fbx` works too) at correct scale and naming; into the engine with the right import settings; assign a real-time material. (See [[d5-03]].)\n' +
 '- **Validate in-engine** — check it at game distance, in game lighting, at its LODs, and against budget.\n\n' +
 'Two truths about pipelines. First, they’re **iterative, not strictly linear** — you’ll bounce back to fix a UV after baking, or simplify the low-poly after profiling. Second, **the pipeline is shared** — your naming, scale and export choices land in the level designer’s scene and the programmer’s prefab, so discipline here is teamwork, not pedantry. A messy export is *their* bug. Treat "exports clean and runs in-engine at budget" as the real definition of *done* — a gorgeous Blender file that won’t import is not finished.',
     task:

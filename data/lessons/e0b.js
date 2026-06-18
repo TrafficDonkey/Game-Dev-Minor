@@ -7,7 +7,7 @@
     id: 'e0-05', title: 'Object-oriented thinking: classes and objects', pillarId: 'E', phaseId: 'e0', moduleId: 'e0b',
     difficulty: 'Intermediate', mode: 'knowledge', estMinutes: 26,
     concept:
-'*Layer-1, engine-neutral: the idea is true everywhere; we note the Unity/C# counterpart so you can see what transfers.*\n\n' +
+'*Layer-1, engine-neutral: the idea is true everywhere; we note the Godot counterpart (same idea elsewhere) so you can see what transfers.*\n\n' +
 'Once you have variables, functions and loops ([[e0-02]]–[[e0-04]]), the next leap is **bundling data and the behaviour that acts on it together**. That bundle is an ((object)). A ((class)) is the *blueprint*; an object is one *instance* made from it. Write the `Enemy` class once, then spawn a hundred enemy objects, each with its own `health`, `position` and `state`.\n\n' +
 'A class names two things: **fields** (the data each object carries) and **methods** (functions that operate on that data). For an enemy:\n\n' +
 '```\nclass Enemy {\n  health = 100\n  position = { x: 0, y: 0 }\n  speed = 3\n\n  takeDamage(amount) {\n    this.health = this.health - amount\n    if (this.health <= 0) this.die()\n  }\n\n  die() { /* play effect, remove from world */ }\n}\n```\n\n' +
@@ -16,7 +16,7 @@
 '- ((Encapsulation)) — keep an object’s data private and expose methods to change it. Outsiders call `takeDamage(10)` instead of writing `enemy.health -= 10`, so the death check can never be skipped. The object guards its own rules.\n' +
 '- ((Inheritance)) — a `FlyingEnemy` can extend `Enemy`, reusing its fields and overriding `move()`. Powerful, but deep inheritance trees get brittle; favour shallow hierarchies.\n' +
 '- ((Composition)) — instead of one giant class, build an object from small parts (a `Health`, a `Mover`, a `Weapon`). Game code trends hard toward composition, which is exactly the seam to **component/entity thinking** ([[e1-09]]) and to how engines work.\n\n' +
-'This is the model engines are built on: in **Unity/C#** your scripts are classes that inherit from `MonoBehaviour` ([[e2-02]]); in Unreal they extend `AActor`; in Godot they extend `Node`. Learn classes now and that engine layer stops being mysterious. The mantra: *a class models one clear thing — its data and what it can do.*',
+'This is the model engines are built on: in **Godot** a script *extends a Node type* — `extends Node`, `extends Node2D`, `extends CharacterBody2D` — so the class is your node’s behaviour ([[e2-02]]). (Same idea elsewhere: Unreal classes extend `AActor`; Unity scripts inherit from `MonoBehaviour`.) Learn classes now and that engine layer stops being mysterious. The mantra: *a class models one clear thing — its data and what it can do.*',
     task:
 'On paper or in the playground, design **three classes** for a small game: `Player`, `Coin`, and `Door`. For each, list its **fields** (data) and **methods** (verbs it can do), e.g. `Player` has `health`, `coins`, and methods `move()`, `collect(coin)`, `takeDamage(n)`. Then answer in one sentence each: (a) which field on `Player` should be *encapsulated* (changed only through a method) and why, and (b) one place you would prefer *composition* over *inheritance* (hint: a `Coin` and a `Door` that both glow — is "Glower" a base class or a part?).',
     success: [
@@ -47,17 +47,17 @@
 '- Need a *stable position / grid coordinate* and a fixed count → **array**.\n' +
 '- Need a *changing collection* you iterate over → **list**.\n' +
 '- Need to *find one thing fast by name or id* → **map**.\n\n' +
-'A classic beginner mistake is a `for` loop scanning a list to find an entity by id every frame — fine for 10 entities, a real cost for 10,000. A map turns that scan into a direct lookup ([[e0-07]] makes the cost difference precise). Names differ — C# has `List<T>` and `Dictionary<K,V>`, C++ `std::vector` and `std::map`, GDScript `Array` and `Dictionary` — but the three shapes and when to use them are the same everywhere.',
+'A classic beginner mistake is a `for` loop scanning a list to find an entity by id every frame — fine for 10 entities, a real cost for 10,000. A map turns that scan into a direct lookup ([[e0-07]] makes the cost difference precise). Names differ — GDScript has `Array` and `Dictionary`, C# `List<T>` and `Dictionary<K,V>`, C++ `std::vector` and `std::map` — but the three shapes and when to use them are the same everywhere.',
     task:
 'For a small top-down game, pick the right structure for each of these and write one line saying why: (1) the 20×15 grid of floor tiles, (2) the enemies currently alive, (3) "given an item id, get its name, icon and price", (4) the player’s 6 hotbar slots, (5) which door ids the player has unlocked. Then take case (2) or (3) and write 3–4 lines of pseudocode that adds to it and reads from it.',
     success: [
       'You can match array / list / map to a problem from its access pattern (fixed-index, changing collection, lookup-by-key).',
       'You can explain why looking something up in a map beats scanning a list for it.',
-      'You can name the equivalent type in at least one real language (e.g. C# `List<T>` / `Dictionary<K,V>`).'
+      'You can name the equivalent type in at least one real language (e.g. GDScript `Array` / `Dictionary`, or C# `List<T>` / `Dictionary<K,V>`).'
     ],
     skills: ['Arrays & indexing', 'Dynamic lists', 'Maps / key-value lookup'],
     simplified: 'There are many more structures (sets, queues, stacks, trees, graphs) and "map" hides real machinery (hashing, collisions). For game logic, mastering array vs list vs map and choosing by access pattern covers most of what you write day to day.',
-    goDeeper: 'Any intro data-structures resource covers the rest; your engine’s collection docs (C# `System.Collections.Generic`, GDScript `Array`/`Dictionary`) show the exact methods and their costs.',
+    goDeeper: 'Any intro data-structures resource covers the rest; your engine’s collection docs (GDScript `Array`/`Dictionary`, or C# `System.Collections.Generic`) show the exact methods and their costs.',
     quiz: [
       { q: 'You need to look up an entity by its numeric id thousands of times per frame. Array scan, list scan, or map?', a: 'A map (dictionary / hash map) keyed by id. A scan of an array or list checks elements one by one — cost grows with the collection size. A map computes the slot from the key, so the lookup stays fast no matter how many entities exist.' },
       { q: 'When is a plain array a better fit than a dynamic list?', a: 'When the count is fixed and you access by a stable position — a tilemap grid, a fixed number of inventory slots. Direct indexing is instant and the memory is compact. A list is for collections that grow and shrink, like the set of enemies currently alive.' }

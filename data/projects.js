@@ -208,18 +208,18 @@
       ],
       relatedLessons: ['d5-01', 'd5-02', 'c3-02', 'c4-03'] },
 
-    { id: 'p11', title: 'Script a core mechanic with a unit test (Unity/C#)', difficulty: 'Advanced',
+    { id: 'p11', title: 'Script a core mechanic with a unit test (Godot — GDScript or C#)', difficulty: 'Advanced',
       tagline: 'Engine-specific — code one mechanic and prove it works',
       brief:
-'Implement one **core mechanic** in code and back it with a **unit test**. This is the Layer-2 (engine-specific) project — defaults to **Unity / C#**, but the structure ports directly to Unreal or Godot.\n\n' +
-'Use [[e2-03]] (scripting the update loop), [[e2-04]] (a player controller) and [[e2-08]] (unit-testing a mechanic). First nail the *logic* (use the **Code playground** to prototype a state machine or movement rule), then wire it into the engine and test the pure logic.\n\n' +
+'Implement one **core mechanic** in code and back it with a **unit test**. This is the Layer-2 (engine-specific) project, in the minor’s confirmed engine **Godot 4.x**, written in **GDScript or C#** — your choice (both are allowed for project and deliverables). The structure ports to any engine.\n\n' +
+'Use [[e2-03]] (scripting the frame loop), [[e2-04]] (a player controller) and [[e2-08]] (unit-testing a mechanic — GUT for GDScript, or a C# test runner). First nail the *logic* (use the **Code playground** to prototype a state machine or movement rule), then wire it into Godot and test the pure logic.\n\n' +
 '**Deliverable:** the mechanic running in the engine, plus at least one passing unit test of its core logic, and a note on what the test protects.',
       checklist: [
         'One mechanic chosen and implemented (movement, a simple FSM, a pickup, etc.).',
         'The core logic separated from engine glue so it can be tested.',
         'At least one unit test that asserts the logic’s behaviour.',
         'The test passes, and you can state what change would make it fail.',
-        'A short note: how this maps to Unreal (C++/Blueprints) or Godot (GDScript).'
+        'A short note: how the same logic would look in the other language (GDScript ↔ C#), or in another engine.'
       ],
       stretch: [
         'Prototype the same logic in the Code playground first and compare.',

@@ -5,8 +5,9 @@ real **headstart for a university Game Development minor** (30 ECTS, HBO/Netherl
 has chosen five role-tracks — **Storyteller, Game Designer, Level Designer, 3D Modeller, Programmer**
 — and wants to become a **versatile, solo-capable dev** who can touch the whole pipeline. They have a
 Windows PC with an **RTX 3060 Ti** and **Ryzen 7**, and **already know Blender** (teach game-ready /
-real-time technique, NOT Blender basics). The default engine is **Unity + C#**, kept clearly
-**swappable** to Unreal (C++/Blueprints) or Godot (GDScript).
+real-time technique, NOT Blender basics). The minor's engine is **Godot 4.x** (confirmed by the
+organisers), and you may write in **GDScript or C#** for both the group project and individual
+deliverables.
 
 This is a **genuine headstart across five roles, not mastery** — say so where a topic runs deeper.
 **Show the seams**: constantly connect each track to the others (story → design → level → 3D → code).
@@ -92,11 +93,14 @@ with a digit** (`00-01`, `01-04`, `03-02`). Always set `pillarId`, `phaseId`, `m
   pathfinding (A*, navmeshes), shaders (vertex/fragment, GPU), version control. If you’re unsure of a
   number or a tool specific, **say so** (use `simplified`) rather than assert.
 - **The two-layer programming split.** Pillar E Layer-1 lessons (phases `e0`, `e1`) are **engine-
-  neutral**: teach the concept in plain terms / pseudocode / JS, and frame it as **transferable** —
-  note how it appears in an engine without depending on one. Pillar E Layer-2 lessons (phase `e2`) and
-  the engine-level lessons (phase `c4`) are **engine-specific, default Unity/C#**: open with a one-line
-  banner like *"Engine-specific (Unity/C#) — the same idea is `X` in Unreal and `Y` in Godot,"* and
-  keep the transferable concept visible. Label engine-specific content as such, everywhere.
+  neutral**: teach the concept in plain terms / pseudocode / JS, frame it as **transferable**, and when
+  you name the engine hook lead with **Godot** (e.g. `_process(delta)`), mentioning other engines only as
+  "same idea elsewhere." Pillar E Layer-2 lessons (phase `e2`) and the engine-level lessons (phase `c4`)
+  are **engine-specific for Godot 4.x**: open with a one-line banner like *"Engine-specific (Godot 4.x —
+  GDScript or C#)."* Show code in **GDScript** as the primary language, and note that **C# is fully
+  supported and equally valid** in Godot (statically typed, closer to the e0/e1 fundamentals, more
+  transferable) — the learner may pick either; do NOT double every snippet. Keep the transferable concept
+  visible, and label engine-specific content as such, everywhere.
 - **Tool honesty — the site cannot run an engine or Blender.** Teach with concepts, exact click-paths,
   and JS *concept* demos only; **never fake engine or Blender output**, never imply a screenshot is
   real engine output. The browser runs JS, so JS demos of logic (game loop, FSM, vectors) are fair —

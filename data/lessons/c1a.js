@@ -30,7 +30,7 @@
     skills: ['Greyboxing a space', 'Building to traversal metrics', 'Testing play before art'],
     diagram: 'blockout',
     simplified: 'The traversal numbers (run speed, jump height) are illustrative defaults — every game tunes its own, and you set yours from your prototype, not from these figures.',
-    goDeeper: 'Search GDC talks on "blockout" and level-design metrics; many studios publish their grey-box scale blocks and metric guides. The principle is identical across Unity, Unreal and Godot — only the box-pushing tool changes.',
+    goDeeper: 'Search GDC talks on "blockout" and level-design metrics; many studios publish their grey-box scale blocks and metric guides. The principle is engine-agnostic — only the box-pushing tool changes. In **Godot 4.x** you greybox with **CSG** nodes (`CSGBox3D`, `CSGCombiner3D`) for quick volumes and **GridMap** for snapping modular boxes to a grid; the same idea elsewhere uses ProBuilder (Unity) or BSP/geometry brushes (Unreal). You can also block out in Blender and import the `.glb`.',
     quiz: [
       { q: 'Why block out in plain grey instead of just building the level with rough art?', a: 'Grey forces you and your testers to judge the space and the play, not the looks, and grey boxes are cheap to move so you can iterate fast. A level that is fun in grey will be fun with art; one that is dull in grey won’t be rescued by textures.' },
       { q: 'Why lock player traversal metrics (run speed, jump height, reach) before building much?', a: 'Because the whole level’s geometry — corridor widths, gap sizes, ledge heights — is sized to those metrics. If they change later, every distance you built is suddenly wrong, so you pin them down first and build everything to them.' }

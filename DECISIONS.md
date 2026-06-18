@@ -30,11 +30,18 @@ are filled in at the bottom once the full content build + validation completed.)
 - Pillar E is split openly: **Layer 1 (engine-neutral)** = phases `e0` (CS fundamentals) and `e1`
   (game-programming concepts: game loop, delta time, vectors/transforms, FSMs, events, components),
   taught in pseudocode/JS and framed as transferable. **Layer 2 (engine-specific)** = phase `e2`,
-  **defaulting to Unity/C#** and walled off in its own phase, opening each lesson with a banner noting
-  the Unreal (C++/Blueprints) and Godot (GDScript) equivalents so it is **clearly swappable**. The
-  engine-specific level-building lessons live in Pillar C phase `c4` and carry the same banner.
-- Because the minor's actual engine/language is still unknown to the learner (reply pending), every
-  engine-specific lesson is labelled as such and the fundamentals are framed as what transfers.
+  walled off in its own phase. The engine-specific level-building lessons live in Pillar C phase `c4`.
+- **Engine resolved → Godot 4.x.** The minor's engine was initially unknown, so Layer 2 was built
+  default-Unity-but-walled-off-and-swappable. The organisers later confirmed **Godot 4.x**, with
+  **GDScript or C# both allowed** for the project and individual deliverables — so Layer 2 (phase `e2`),
+  the in-engine level lessons (`c4`), the 3D-export/toolchain/capstone lessons, the shortcut reference and
+  the glossary were all re-pointed to Godot. **GDScript is shown as the primary teaching language; C# is
+  flagged as fully supported and equally valid** (closer to the JS/CS fundamentals, more transferable) —
+  snippets aren't doubled. Layer 1 stays engine-neutral but now leads with Godot's hooks (`_process(delta)`,
+  `_physics_process`, signals, `CharacterBody`) and names Unity/Unreal only as "same idea elsewhere," so the
+  transferable framing the brief asked for is preserved as a genuine cross-engine reference rather than a
+  hedge. The conversion was done by a parallel sub-agent pass against an accurate Godot-4.x mapping, then
+  validated (`check.mjs`), browser-tested and spot-reviewed for Godot correctness.
 
 ## Aesthetic & signature
 - Grounded in a **game engine's dark editor**: charcoal viewport-grey panels, hairline borders, a faint
@@ -57,8 +64,9 @@ are filled in at the bottom once the full content build + validation completed.)
 
 ## Honesty & uncertain details (labelled, not asserted)
 - The site cannot run an engine or Blender; lessons teach concepts, click-paths/commands and JS demos.
-- **Engine default = Unity/C#**, labelled swappable everywhere it appears (the minor's real engine is
-  unknown).
+- **Engine = Godot 4.x** (confirmed by the organisers), written in **GDScript or C#** (both allowed for
+  project and deliverables). GDScript is the primary shown language, C# noted as equally valid; Layer-1
+  fundamentals stay engine-neutral and are framed as what transfers.
 - **Achievement grade model (corrected against the real rubric).** The minor's actual rules: grade =
   50% individual achievement portfolio + 50% the group game (graded by the lecturers in their areas);
   **silver = attending all of a track's lectures** (attendance), **gold = two individual assignments per
@@ -81,7 +89,7 @@ are filled in at the bottom once the full content build + validation completed.)
 
 ## Final verification (all green)
 - `node check.mjs`: **169 lessons** (0:23 A:25 B:24 C:19 D:26 E:38 F:14), 59 lesson files,
-  **157 glossary terms**, **57 shortcuts** (Unity/Blender/Git), 12 projects, 10 milestones —
+  **142 glossary terms**, **56 shortcuts** (Godot/Blender/Git), 12 projects, 10 milestones —
   zero problems, zero warnings (every cross-reference resolves, every concept in word-count range,
   every ``` code fence balanced, every `diagram` tool id valid).
 - Served locally: **zero console errors/warnings**; all 169 lessons render; **all 10 tools mount and

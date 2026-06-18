@@ -1,58 +1,57 @@
 /* =============================================================================
  * Game Dev Academy — shortcut & command reference data.
  * Consumed by the Shortcuts reference page and the search index.
- * Fields: { app, action, keys, context }. `app` is 'Unity', 'Blender' or 'Git'.
+ * Fields: { app, action, keys, context }. `app` is 'Godot', 'Blender' or 'Git'.
  *
- * Unity / Blender `keys` are the COMMON DEFAULTS — both apps are fully
- * remappable (Unity: Edit › Shortcuts; Blender: Preferences › Keymap) and a few
- * bindings change between versions, so treat these as a starting point, not law.
- * For Git, `keys` holds the actual COMMAND you type in a terminal — these are
- * stable across versions and are the muscle-memory a game-team needs daily.
+ * Godot / Blender `keys` are the COMMON DEFAULTS — both apps are fully
+ * remappable (Godot: Editor Settings › Shortcuts; Blender: Preferences › Keymap)
+ * and a few bindings change between versions, so treat these as a starting point,
+ * not law. For Git, `keys` holds the actual COMMAND you type in a terminal —
+ * these are stable across versions and are the muscle-memory a game-team needs daily.
  *
- * Chosen for the game-dev workflow: build a small, scoped game in Unity, author
- * game-ready assets in Blender, and version it all (binaries and code) with Git.
+ * Chosen for the game-dev workflow: build a small, scoped game in Godot 4.x
+ * (GDScript or C#), author game-ready assets in Blender, and version it all
+ * (binaries and code) with Git.
  * ========================================================================== */
 ;(function (root) {
   var D = root.GDA_DATA = root.GDA_DATA || {};
 
   D.hotkeys = [
-    /* ------------------------------- Unity --------------------------------- */
-    { app: 'Unity', action: 'Hand (Pan view)', keys: 'Q',
-      context: 'Default editor toolbar shortcut (remappable in Edit › Shortcuts). Grabs the Scene view to drag the camera around without touching any object — your "look around without selecting anything" tool.' },
-    { app: 'Unity', action: 'Move tool', keys: 'W',
-      context: 'Default, remappable. Shows the position gizmo (red X / green Y / blue Z arrows) so you can drag a GameObject along an axis. Hold the labelled arrow, not just the colour, to stay axis-locked.' },
-    { app: 'Unity', action: 'Rotate tool', keys: 'E',
-      context: 'Default, remappable. Shows the rotation gizmo to spin a GameObject around X, Y or Z. Watch the Inspector’s Transform › Rotation values so you set clean angles (e.g. exactly 90) rather than eyeballing.' },
-    { app: 'Unity', action: 'Scale tool', keys: 'R',
-      context: 'Default, remappable. Resizes a GameObject. For game art, prefer fixing real size in Blender and importing at scale 1 — non-uniform Unity scaling can break physics, lighting and child objects.' },
-    { app: 'Unity', action: 'Rect tool', keys: 'T',
-      context: 'Default, remappable. The 2D resize/position handle — essential for laying out UI (Canvas) elements and 2D sprites, where it edits the rectangle and pivot rather than a 3D transform.' },
-    { app: 'Unity', action: 'Transform tool (combined)', keys: 'Y',
-      context: 'Default, remappable. Shows Move, Rotate and Scale handles together on one gizmo so you can do all three without swapping tools — handy when dressing a level quickly.' },
-    { app: 'Unity', action: 'Frame Selected', keys: 'F',
-      context: 'Default, remappable. Pivots and zooms the Scene view to fill the screen with the selected GameObject — the fastest way to find something after it scrolls off. Press Shift+F to lock-follow it as it moves.' },
-    { app: 'Unity', action: 'Play / Stop', keys: 'Ctrl+P',
-      context: 'Default, remappable. Enters and exits Play Mode to test your game. IMPORTANT: changes you make while playing are reverted on Stop — tweak values to find good numbers, then re-apply them with the game stopped.' },
-    { app: 'Unity', action: 'Pause', keys: 'Ctrl+Shift+P',
-      context: 'Default, remappable. Freezes Play Mode so you can inspect the live scene mid-action; pair it with the Step button (Ctrl+Alt+P) to advance one frame at a time when chasing a physics or animation bug.' },
-    { app: 'Unity', action: 'Save Scene', keys: 'Ctrl+S',
-      context: 'Default, remappable. Saves the open scene(s). Unity does NOT auto-save the scene, and a Play-Mode crash loses unsaved edits — make Ctrl+S a reflex, especially before pressing Play.' },
-    { app: 'Unity', action: 'Duplicate', keys: 'Ctrl+D',
-      context: 'Default, remappable. Copies the selected GameObject(s) in place. Great for filling a level — but turn repeated objects into a Prefab first so one edit updates every copy (the scope-saver for level building).' },
-    { app: 'Unity', action: 'Vertex Snap', keys: 'V (hold)',
-      context: 'Default, remappable. With the Move tool active, hold V and drag from a vertex to snap it exactly onto another object’s vertex — the clean way to butt modular floor/wall pieces together with no seams or gaps.' },
-    { app: 'Unity', action: 'Undo', keys: 'Ctrl+Z',
-      context: 'Default, remappable. Steps back through scene and Inspector edits; Redo is Ctrl+Y (or Ctrl+Shift+Z). Note: most actions taken while in Play Mode are not on the undo stack — they vanish on Stop instead.' },
-    { app: 'Unity', action: 'Align View to Selected', keys: 'Shift+F or double-F',
-      context: 'Default, remappable. Snaps the Scene camera to look straight at the selection and follows it — like Frame Selected but it keeps tracking, useful for watching a moving object during a test.' },
-    { app: 'Unity', action: 'Align Selected with View (Move To View)', keys: 'Ctrl+Shift+F',
-      context: 'Default, remappable. Moves the selected GameObject to the current Scene-view camera position and angle — the quick trick for placing a Camera or spawn point exactly where you are looking.' },
-    { app: 'Unity', action: 'Focus Hierarchy search / rename', keys: 'F2',
-      context: 'Default, remappable. Renames the selected GameObject or Project asset inline. Clear names (Player, Enemy_Spawner, UI_HealthBar) keep a growing project navigable — future-you and any teammate will thank you.' },
-    { app: 'Unity', action: 'Toggle Pivot / Center & Local / Global', keys: 'Z / X',
-      context: 'Default, remappable. Z toggles the gizmo between the object’s Pivot and the selection Center; X toggles handles between Local and Global axes. Mismatched here is the usual cause of "why is it moving the wrong way?".' },
-    { app: 'Unity', action: 'Group select / Add to selection', keys: 'Ctrl+Click / Shift+Click',
-      context: 'Default behaviour. Build a multi-selection in the Hierarchy or Scene to move or delete several objects at once; Shift+Click selects a range, Ctrl+Click toggles individual items in or out.' },
+    /* ------------------------------- Godot --------------------------------- */
+    { app: 'Godot', action: 'Run Project', keys: 'F5',
+      context: 'Default editor shortcut (remappable in Editor Settings › Shortcuts; version-dependent). Launches the project from its main scene to test your game. Set the main scene once when prompted — afterwards F5 always boots there.' },
+    { app: 'Godot', action: 'Run Current Scene', keys: 'F6',
+      context: 'Default, remappable. Plays just the scene you have open instead of the whole project — the fast way to test one level or one mechanic in isolation without booting through your menus.' },
+    { app: 'Godot', action: 'Stop running', keys: 'F8',
+      context: 'Default, remappable. Stops the running game and returns to the editor. Unlike some engines, Godot runs your game in a separate window/process, so edits in the editor are not silently reverted when you stop.' },
+    { app: 'Godot', action: 'Save Scene', keys: 'Ctrl+S',
+      context: 'Default, remappable. Saves the open .tscn scene. Godot scenes are TEXT files, so save often and commit them — they diff and merge cleanly in Git, a real advantage over binary scene formats.' },
+    { app: 'Godot', action: 'Save All Scenes', keys: 'Ctrl+Shift+Alt+S',
+      context: 'Default, remappable. Saves every open scene at once — handy when an edit (renaming a node, changing a shared script) touches several scenes. Pair it with Ctrl+S muscle memory before you run or commit.' },
+    { app: 'Godot', action: 'Add Child Node', keys: 'Ctrl+A',
+      context: 'Default, remappable (Scene dock focused). Opens the Create Node dialog to add a child to the selected node — how you build the scene tree (e.g. a CharacterBody2D, a CollisionShape2D, a Sprite2D). Search by type name to find nodes fast.' },
+    { app: 'Godot', action: 'Duplicate Node', keys: 'Ctrl+D',
+      context: 'Default, remappable. Copies the selected node and its children in place. Great for filling a level — but for anything you reuse, save it as a PackedScene (its own .tscn) first so one edit updates every instance (the scope-saver).' },
+    { app: 'Godot', action: 'Move node up / down in tree', keys: 'Ctrl+Up / Ctrl+Down',
+      context: 'Default, remappable. Reorders the selected node among its siblings in the Scene dock. Order matters: it sets sibling draw order for 2D (later = on top) and the order signals/_ready run, so it is not just cosmetic.' },
+    { app: 'Godot', action: 'Delete node', keys: 'Delete',
+      context: 'Default, remappable. Removes the selected node(s) from the scene tree. Use Ctrl+Z to undo if you cut too much. Deleting a parent deletes its children too — check what is nested under it first.' },
+    { app: 'Godot', action: 'Focus Selected in viewport', keys: 'F',
+      context: 'Default, remappable. Centres and frames the selected node in the 2D or 3D viewport — the fastest way to find something after it scrolls off screen. The viewport must be focused (click into it first).' },
+    { app: 'Godot', action: 'Undo', keys: 'Ctrl+Z',
+      context: 'Default, remappable. Steps back through scene and Inspector edits; Redo is Ctrl+Shift+Z. The editor and the script editor keep separate undo histories, so undo applies to whichever panel has focus.' },
+    { app: 'Godot', action: 'Multi-select in Scene tree', keys: 'Ctrl+Click / Shift+Click',
+      context: 'Default behaviour. Build a multi-selection in the Scene dock to move, group or delete several nodes at once; Shift+Click selects a range, Ctrl+Click toggles individual nodes in or out.' },
+    { app: 'Godot', action: 'Quick-open scene / script', keys: 'Ctrl+Shift+O',
+      context: 'Default, remappable. Fuzzy-search any scene or script by name and jump straight to it — far faster than hunting the FileSystem dock on a growing project. (Ctrl+Shift+E quick-opens just scripts in some versions; check yours.)' },
+    { app: 'Godot', action: 'Search & Replace in script', keys: 'Ctrl+R',
+      context: 'Default, remappable (script editor focused). Find-and-replace within the current script; Ctrl+F is plain find. Use it to rename a local variable consistently — but rely on real refactors for things referenced across files.' },
+    { app: 'Godot', action: 'Search Help (class reference)', keys: 'F1',
+      context: 'Default, remappable. Opens the built-in API docs and searches the class reference — look up move_and_slide, Input.get_vector, signals, or any Node method without leaving the editor. The docs are offline and match your installed version.' },
+    { app: 'Godot', action: 'Search in Files', keys: 'Ctrl+Shift+F',
+      context: 'Default, remappable. Searches text across every script in the project — the way to find every place a function, signal name or magic number is used before you change it. Scope it to a folder to cut noise.' },
+    { app: 'Godot', action: '3D viewport navigation', keys: 'Middle-mouse orbit / RMB+WASD flythrough',
+      context: 'Default navigation (configurable in Editor Settings). Middle-mouse drag orbits, Shift+MMB pans, scroll zooms; hold right-mouse and use WASD (Q/E down/up, Shift to speed up) for a free-fly camera — the quick way to inspect a 3D level. 2D pans with middle-mouse and zooms with scroll.' },
 
     /* ------------------------------ Blender -------------------------------- */
     { app: 'Blender', action: 'Toggle Edit / Object Mode', keys: 'Tab',
@@ -132,8 +131,8 @@
     { app: 'Git', action: 'Install Git LFS', keys: 'git lfs install',
       context: 'One-time setup (per machine) that enables Large File Storage. Game projects are full of big binaries — textures, audio, models — and LFS stores them efficiently instead of bloating the repo with every version of every asset.' },
     { app: 'Git', action: 'Track binaries with LFS', keys: 'git lfs track "*.png"',
-      context: 'Tells LFS to handle a file type (repeat for *.fbx, *.wav, *.psd, *.unity). This writes a rule into .gitattributes — commit that file so the whole team’s clones store those assets through LFS too. Set this up EARLY, before the binaries pile up.' },
+      context: 'Tells LFS to handle a file type (repeat for *.glb, *.wav, *.psd, *.ogg). This writes a rule into .gitattributes — commit that file so the whole team’s clones store those assets through LFS too. Set this up EARLY, before the binaries pile up. Note Godot’s .tscn/.tres scene and resource files are TEXT — keep those out of LFS so they stay diffable.' },
     { app: 'Git', action: 'Ignore files (.gitignore)', keys: '.gitignore (file)',
-      context: 'A text file listing paths Git should never track. For Unity, ignore Library/, Temp/, obj/, Build/ and Logs/ — these are regenerated locally and committing them causes constant, pointless conflicts. Grab a ready-made Unity .gitignore to start.' }
+      context: 'A text file listing paths Git should never track. For Godot 4, ignore the .godot/ editor cache (and export_presets.cfg if it holds secrets) — it is regenerated locally and committing it causes constant, pointless conflicts. DO commit project.godot, your .tscn/.tres files and the .import metadata. Grab a ready-made Godot .gitignore to start.' }
   ];
 })(typeof window !== 'undefined' ? window : globalThis);

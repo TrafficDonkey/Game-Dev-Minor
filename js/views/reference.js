@@ -125,7 +125,7 @@
     var active = 'all', filterText = (router.query().q || '');
 
     var html = '<div class="page-head"><div class="kicker">Reference</div><h1>Engine, Blender &amp; Git shortcuts</h1>'
-      + '<p class="lede">The keys that matter across the pipeline: the default engine (Unity), Blender for game-ready assets, and Git on the command line. Engine and Blender keys are remappable and a few change between versions, so treat these as common defaults, not gospel.</p></div>'
+      + '<p class="lede">The keys that matter across the pipeline: the minor’s engine (Godot 4.x), Blender for game-ready assets, and Git on the command line. Engine and Blender keys are remappable and a few change between versions, so treat these as common defaults, not gospel.</p></div>'
       + '<div class="glossary-controls"><div class="search" style="width:min(360px,60vw)"><span class="si">' + ui.icon('search') + '</span>'
       + '<input type="search" id="ksearch" placeholder="Filter shortcuts…" autocomplete="off" value="' + ui.esc(filterText) + '"></div></div>'
       + '<div class="glossary-controls" id="kapps"><span class="cat-chip on" data-a="all">All</span>'
